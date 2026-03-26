@@ -1,0 +1,22 @@
+clear;
+clf;
+
+Fs = 8000;
+f = 262;
+w = 2 * pi * f;
+T = 3;
+n = T * Fs;
+t = 0 : 1/Fs : T;
+Amp = 1;
+ph = 0;
+N = 300;
+
+x = Amp * sin(w * t + ph);
+
+sound(x,Fs);
+
+
+figure;
+plot(t, x);
+xlim([0, t(N)]);
+grid on;
