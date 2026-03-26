@@ -1,0 +1,30 @@
+K = 3;
+Amp = [4,4,4];
+ph = [0,0,0];
+f = [262, 330, 392];
+
+Fs = 8000;
+T = 2;
+t = 0 : 1/Fs : T;
+N = 300;
+
+akord = zeros(1, length(t));
+
+figure;
+
+for i = 1:K
+    tone = Amp(i) * sin(2* pi * f(i) * t + ph(i));
+    
+    akord = akord + tone;
+    
+    subplot(K+1,1,i);
+    plot(t, tone);
+    xlim([0, t(N)]);
+    grid on;
+end
+
+subplot(K+1,1,K+1);
+plot(t,akord, 'r');
+xlim([0, t(N)]);
+
+sound(akord/12,Fs);
