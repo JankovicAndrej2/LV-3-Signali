@@ -1,0 +1,16 @@
+
+Fs = 8000;
+T = 0.4;
+Amp = 1;
+
+m = {'C', 'C', 'D', 'C', 'F', 'E', 'C', 'C', 'D', 'C', 'G', 'F', 'C', 'C', 'C5', 'A', 'F', 'E', 'D', 'Bb', 'Bb', 'A', 'F', 'G', 'F'};
+
+
+song = [];
+
+for i = 1:length(m)
+    tone = mytone(m{i},Fs,T,Amp);
+    song = [song, tone];
+end
+
+sound(song,Fs);
